@@ -28,7 +28,7 @@ class ZohoInvoiceApiClient extends Client
         $client = new self($baseUrl, $config);
 
 
-        $filePath = __DIR__ . '/Services/' . $config->get('service_definition');
+        $filePath = __DIR__ . '/Services/' . $config->get('service_definition') .".json";
 
         //check if service definition exists
         if(!file_exists($filePath))
