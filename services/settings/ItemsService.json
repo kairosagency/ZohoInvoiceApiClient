@@ -1,0 +1,135 @@
+{
+    "name": "Zoho invoice items settigns api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getItems": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/items",
+            "summary": "List all items with pagination",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getItem": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Get the details of an item",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "createItem": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/items",
+            "summary": "Creates a new item",
+            "parameters": {
+                "name": {
+                    "location": "json",
+                    "description": "Item name",
+                    "required": true,
+                    "type": "string"
+                },
+                "description": {
+                    "location": "json",
+                    "description": "Item description",
+                    "type": "string"
+                },
+                "rate": {
+                    "location": "json",
+                    "description": "Item price",
+                    "required": true,
+                    "type": "number"
+                },
+                "tax_id": {
+                    "location": "json",
+                    "description": "ID of the tax to be associated to the item.",
+                    "type": "string"
+                }
+            }
+        },
+        "updateItem": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Update the details of an item",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                },
+                "name": {
+                    "location": "json",
+                    "description": "Item name",
+                    "required": true,
+                    "type": "string"
+                },
+                "description": {
+                    "location": "json",
+                    "description": "Item description",
+                    "type": "string"
+                },
+                "rate": {
+                    "location": "json",
+                    "description": "Item price",
+                    "required": true,
+                    "type": "number"
+                },
+                "tax_id": {
+                    "location": "json",
+                    "description": "ID of the tax to be associated to the item.",
+                    "type": "string"
+                }
+            }
+        },
+        "deleteItem": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Delete the item created.items that are part of transaction cannot be deleted",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveItem": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/items/{item_id}/active",
+            "summary": "Mark an inactive item as active",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveItem": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/items/{item_id}/inactive",
+            "summary": "Mark an inactive item as inactive",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "name": "Zoho invoice estimates comments & history api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimateComments": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/estimates/{estimate_id}/comments",
+            "summary": "Get the complete history and comments of an estimate",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "addEstimateComment": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/estimates/{estimate_id}/comments",
+            "summary": "Add a comment for an estimate.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "show_comment_to_clients": {
+                    "location": "json",
+                    "description": "Boolean to show the comments to contacts in portal.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "updateEstimateComment": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/comments/{comment_id}",
+            "summary": "Update an existing comment of an estimate.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                },
+                "show_comment_to_clients": {
+                    "location": "json",
+                    "description": "Boolean to show the comments to contacts in portal.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "deleteEstimateComment": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/comments/{comment_id}",
+            "summary": "Delete an estimate comment.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "name": "Zoho invoice recurring invoices api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getRecurringInvoices": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/recurringinvoices",
+            "summary": "List all recurring invoices with pagination",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getRecurringInvoice": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}",
+            "summary": "Get the details of a recurring invoice",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "createRecurringInvoice": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/recurringinvoices",
+            "summary": "Creates a new recurring invoice",
+            "parameters": {
+            }
+        },
+        "updateRecurringInvoice": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}",
+            "summary": "Update an existing recurring invoice. To delete a line item just remove it from the line_items list",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteRecurringInvoice": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}",
+            "summary": "Delete an existing recurring invoice",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "stopRecurringInvoice": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/status/stop",
+            "summary": "Stop an active recurring invoice",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "resumeRecurringInvoice": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/status/stop",
+            "summary": "Resume an active recurring invoice",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "updateRecurringInvoiceTemplate": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/templates/{template_id}",
+            "summary": "Update the pdf template associated with the recurring invoice",
+            "parameters": {
+                "recurring_invoice_id": {
+                    "location": "uri",
+                    "description": "Recurring invoice ID",
+                    "required": true
+                },
+                "template_id": {
+                    "location": "uri",
+                    "description": "Template ID",
+                    "required": true
+                }
+            }
+        },
+        "getRecurringInvoiceComments": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/comments",
+            "summary": "Get the complete history and comments of a recurring invoice",
+            "parameters": {
+            }
+        }
+    }
+}

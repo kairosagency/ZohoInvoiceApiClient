@@ -1,0 +1,486 @@
+{
+    "name": "Zoho invoice estimates api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimates": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/estimates",
+            "summary": "Gets a list of contacts",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createEstimate": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/estimates",
+            "summary": "Creates a new contact",
+            "parameters": {
+                "send": {
+                    "location": "query",
+                    "type": "boolean"
+                },
+                "ignore_auto_number_generation": {
+                    "location": "query",
+                    "type": "boolean",
+                    "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number."
+                },
+                "customer_id": {
+                    "location": "json",
+                    "description": "ID of the customer the estimate has to be created.",
+                    "type": "string",
+                    "required": true
+                },
+                "contact_persons": {
+                    "location": "json",
+                    "description": "Array of contact person(s) for whom estimate has to be sent.",
+                    "type": "array"
+                },
+                "template_id": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "estimate_number": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "date": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "The date the estimate is created. format [yyyy-mm-dd]"
+                },
+                "expiry_date": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Date the estimate is valid upto. format [yyyy-mm-dd]"
+                },
+                "exchange_rate": {
+                    "location": "json",
+                    "type": "number"
+                },
+                "discount": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Discount applied to the invoice. It can be either in % or in amount. e.g. 12.5% or 190."
+                },
+                "is_discount_before_tax": {
+                    "location": "json",
+                    "type": "boolean",
+                    "description": "Used to specify how the discount has to applied. Either before or after the calculation of tax."
+                },
+                "discount_type": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "How the discount is specified. Allowed values are entity_level or item_level. Allowed Values: entity_level and item_level"
+                },
+                "salesperson_name": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Name of the sales person."
+                },
+                "custom_fields": {
+                    "location": "json",
+                    "type": "array"
+                },
+                "line_items": {
+                    "location": "json",
+                    "type": "array",
+                    "parameters": {
+                        "item_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "name": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "description": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "rate": {
+                            "location": "json",
+                            "type": "number"
+                        },
+                        "unit": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "quantity": {
+                            "location": "json",
+                            "type": "number"
+                        },
+                        "discount": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "tax_id": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "shipping_charge": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Shipping charges applied to the invoice."
+                },
+                "adjustment": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "Adjustments made to the invoice."
+                },
+                "adjustment_description": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Customize the adjustment description. E.g. Rounding off."
+                }
+            }
+        },
+        "getEstimate": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Retrieves a single contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to retrieve by ID",
+                    "required": true
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "updateEstimate": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to update by ID",
+                    "required": true
+                },
+                "ignore_auto_number_generation": {
+                    "location": "query",
+                    "type": "boolean",
+                    "description": "Ignore auto invoice number generation for this estimate. This mandates the estimate number."
+                },
+                "customer_id": {
+                    "location": "json",
+                    "description": "ID of the customer the estimate has to be created.",
+                    "type": "string",
+                    "required": true
+                },
+                "contact_persons": {
+                    "location": "json",
+                    "description": "Array of contact person(s) for whom estimate has to be sent.",
+                    "type": "array"
+                },
+                "template_id": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "estimate_number": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "date": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "The date the estimate is created. format [yyyy-mm-dd]"
+                },
+                "expiry_date": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Date the estimate is valid upto. format [yyyy-mm-dd]"
+                },
+                "exchange_rate": {
+                    "location": "json",
+                    "type": "number"
+                },
+                "discount": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Discount applied to the invoice. It can be either in % or in amount. e.g. 12.5% or 190."
+                },
+                "is_discount_before_tax": {
+                    "location": "json",
+                    "type": "boolean",
+                    "description": "Used to specify how the discount has to applied. Either before or after the calculation of tax."
+                },
+                "discount_type": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "How the discount is specified. Allowed values are entity_level or item_level. Allowed Values: entity_level and item_level"
+                },
+                "salesperson_name": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Name of the sales person."
+                },
+                "custom_fields": {
+                    "location": "json",
+                    "type": "array"
+                },
+                "line_items": {
+                    "location": "json",
+                    "type": "array",
+                    "parameters": {
+                        "item_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "name": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "description": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "rate": {
+                            "location": "json",
+                            "type": "number"
+                        },
+                        "unit": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "quantity": {
+                            "location": "json",
+                            "type": "number"
+                        },
+                        "discount": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "tax_id": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "shipping_charge": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Shipping charges applied to the invoice."
+                },
+                "adjustment": {
+                    "location": "json",
+                    "type": "number",
+                    "description": "Adjustments made to the invoice."
+                },
+                "adjustment_description": {
+                    "location": "json",
+                    "type": "string",
+                    "description": "Customize the adjustment description. E.g. Rounding off."
+                }
+            }
+        },
+        "deleteEstimate": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Deletes a contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markSentEstimate": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/status/sent",
+            "summary": "Mark an estimate sent",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "markAcceptedEstimate": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/status/accepted",
+            "summary": "Mark an estimate accepted",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "markDeclinedEstimate": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/status/declined",
+            "summary": "Mark an estimate declined",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "emailEstimate": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/email",
+            "summary": "Email an estimate to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "send_from_org_email_id": {
+                    "location": "json",
+                    "description": "Boolean to trigger the email from the organization's email address.",
+                    "type": "boolean"
+                },
+                "to_mail_ids": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                },
+                "cc_mail_ids": {
+                    "location": "json",
+                    "type": "array"
+                }
+            }
+        },
+        "emailEstimates": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/email",
+            "summary": "Send estimates to your customers by email. Maximum of 10 estimates can be sent at once",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "getEstimateEmailContent": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/email",
+            "summary": "Get estimate email content",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "email_template_id": {
+                    "location": "query",
+                    "type": "string"
+                }
+            }
+        },
+        "exportEstimates": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/pdf",
+            "summary": "Maximum of 25 estimates can be exported in a single pdf",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "printEstimates": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/print",
+            "summary": "Export estimates as pdf and print them. Maximum of 25 estimates can be printed",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "updateBillingAdress": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/address/billing",
+            "summary": "Updates the billing address for this estimate alone. You can set this address as default billing address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "is_update_customer": {
+                    "location": "json",
+                    "description": "Boolean to update the address for all draft and future estimates.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "updateShippingAdress": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/address/shipping",
+            "summary": "Updates the shipping address for an existing estimate alone. You can set this address as default shipping address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "is_update_customer": {
+                    "location": "json",
+                    "description": "Boolean to update the address for all draft and future estimates.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "getEstimateTemplates": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/templates",
+            "summary": "Get all estimate pdf templates.",
+            "parameters": {
+            }
+        },
+        "updateEstimateTemplates": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/estimates/{estimate_id}/templates/{template_id}",
+            "summary": "Get all estimate pdf templates.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "template_id": {
+                    "location": "uri",
+                    "description": "Template ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "name": "Zoho invoice invoices comments & history api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimateComments": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/invoices/{invoice_id}/comments",
+            "summary": "Get the complete history and comments of an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "addInvoiceComment": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/invoices/{invoice_id}/comments",
+            "summary": "Add a comment for an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "description": {
+                    "location": "json",
+                    "description": "Comment",
+                    "type": "string"
+                },
+                "payment_expected_date": {
+                    "location": "json",
+                    "description": "Date the payment is expected for the invoice, format [yyyy-mm-dd]",
+                    "type": "string"
+                },
+                "show_comment_to_clients": {
+                    "location": "json",
+                    "description": "Show comments to client",
+                    "type": ["string","boolean"]
+                }
+            }
+        },
+        "updateInvoiceComment": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/invoices/{invoice_id}/comments/{comment_id}",
+            "summary": "Update an existing comment of an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteInvoiceComment": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/invoices/{invoice_id}/comments/{comment_id}",
+            "summary": "Delete an invoice comment.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

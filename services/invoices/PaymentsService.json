@@ -1,0 +1,84 @@
+{
+    "name": "Zoho invoice invoices payments api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getInvoicePayments": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/invoices/{invoice_id}/payments",
+            "summary": "Get the list of payments made for an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "getInvoiceCredits": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/invoices/{invoice_id}/creditsapplied",
+            "summary": "Get the list of credits applied for an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "applyCredits": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/invoices/{invoice_id}/credits",
+            "summary": "Apply the customer credits either from credit notes or excess customer payments to an invoice. Multiple credits can be applied at once",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteInvoicePayment": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/invoices/{invoice_id}/payments/{invoice_payment_id}",
+            "summary": "Delete a payment made to an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "invoice_payment_id": {
+                    "location": "uri",
+                    "description": "Invoice payment ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteInvoiceCredit": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/invoices/{invoice_id}/creditsapplied/{creditnotes_invoice_id}",
+            "summary": "Delete a particular credit applied to an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "creditnotes_invoice_id": {
+                    "location": "uri",
+                    "description": "Credit ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

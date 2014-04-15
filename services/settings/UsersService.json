@@ -1,0 +1,151 @@
+{
+    "name": "Zoho invoice users settings api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getUsers": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/users",
+            "summary": "Gets a list of users",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createUser": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/users",
+            "summary": "Creates a new user",
+            "parameters": {
+                "name": {
+                    "location": "json",
+                    "description": "Name of the user.",
+                    "type": "string",
+                    "required": true
+                },
+                "email": {
+                    "location": "json",
+                    "description": "Email address of the user.",
+                    "type": "string",
+                    "required": true
+                },
+                "user_role": {
+                    "location": "json",
+                    "description": "Role of the user.Sets the privileges for a user. Allowed Values: staff, admin and timesheetstaff",
+                    "type": "string"
+                }
+            }
+        },
+        "getUser": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Retrieves a single user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "getCurrentUser": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/users/me",
+            "summary": "Retrieves current user",
+            "parameters": {
+                "accept": {
+                    "location": "query",
+                    "description": "Param Description.",
+                    "type": "string"
+                }
+            }
+        },
+        "updateUser": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Update a single user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to update by ID",
+                    "required": true
+                },
+                "name": {
+                    "location": "json",
+                    "description": "Name of the user.",
+                    "type": "string",
+                    "required": true
+                },
+                "email": {
+                    "location": "json",
+                    "description": "Email address of the user.",
+                    "type": "string",
+                    "required": true
+                },
+                "user_role": {
+                    "location": "json",
+                    "description": "Role of the user.Sets the privileges for a user. Allowed Values: staff, admin and timesheetstaff",
+                    "type": "string"
+                }
+            }
+        },
+        "deleteUser": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Deletes an user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "inviteUser": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/users/{user_id}/invite",
+            "summary": "Deletes an user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveUser": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/users/{user_id}/active",
+            "summary": "Mark a user active",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveUser": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/users/{user_id}/inactive",
+            "summary": "Mark a user inactive",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

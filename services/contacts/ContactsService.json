@@ -1,0 +1,456 @@
+{
+    "name": "Zoho invoice contacts api",
+    "apiVersion": "v3",
+    "basePath": "http://localhost:3000",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getContacts": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/contacts",
+            "summary": "Gets a list of contacts",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createContact": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "POST",
+            "uri": "/api/v3/contacts",
+            "summary": "Creates a new contact",
+            "parameters": {
+                "contact_name": {
+                    "location": "json",
+                    "description": "Contact name",
+                    "required": true,
+                    "type": "string"
+                },
+                "billing_address": {
+                    "location": "json",
+                    "description": "Billing address of the contact",
+                    "type": "object",
+                    "parameters": {
+                        "address": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "city": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "state": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "zip": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "country": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "shipping_address": {
+                    "location": "json",
+                    "description": "Shipping address of the contact",
+                    "type": "object",
+                    "parameters": {
+                        "address": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "city": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "state": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "zip": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "country": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "contact_persons": {
+                    "location": "json",
+                    "description": "Contact persons of a contact",
+                    "type": "array",
+                    "parameters": {
+                        "contact_person_id": {
+                            "location": "json",
+                            "description": "ID of the contact person. Mandatory if the existing contact person has to be updated. If empty, a new contact person will be created",
+                            "type": "string"
+                        },
+                        "email": {
+                            "location": "json",
+                            "description": "Email address of the contact person",
+                            "type": "string"
+                        },
+                        "is_primary_contact": {
+                            "location": "json",
+                            "description": "To mark contact person as primary for contact. Allowed value is true only.",
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "default_templates": {
+                    "location": "json",
+                    "description": "To mark contact person as primary for contact. Allowed value is true only.",
+                    "type": "object",
+                    "parameters": {
+                        "invoice_template_id": {
+                            "location": "json",
+                            "description": "Default invoice template id used for this contact while creating invoice.",
+                            "type": "string"
+                        },
+                        "estimate_template_id": {
+                            "location": "json",
+                            "description": "Default estimate template id used for this contact while creating estimate.",
+                            "type": "string"
+                        },
+                        "creditnote_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "invoice_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "estimate_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "creditnote_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "getContact": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Retrieves a single contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "updateContact": {
+            "httpMethod": "PUT",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User to update by ID",
+                    "required": true
+                },
+                "contact_name": {
+                    "location": "json",
+                    "description": "Contact name",
+                    "required": true,
+                    "type": "string"
+                },
+                "billing_address": {
+                    "location": "json",
+                    "description": "Billing address of the contact",
+                    "type": "object",
+                    "parameters": {
+                        "address": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "city": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "state": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "zip": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "country": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "shipping_address": {
+                    "location": "json",
+                    "description": "Shipping address of the contact",
+                    "type": "object",
+                    "parameters": {
+                        "address": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "city": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "state": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "zip": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "country": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                },
+                "contact_persons": {
+                    "location": "json",
+                    "description": "Contact persons of a contact",
+                    "type": "array",
+                    "parameters": {
+                        "contact_person_id": {
+                            "location": "json",
+                            "description": "ID of the contact person. Mandatory if the existing contact person has to be updated. If empty, a new contact person will be created",
+                            "type": "string"
+                        },
+                        "email": {
+                            "location": "json",
+                            "description": "Email address of the contact person",
+                            "type": "string"
+                        },
+                        "is_primary_contact": {
+                            "location": "json",
+                            "description": "To mark contact person as primary for contact. Allowed value is true only.",
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "default_templates": {
+                    "location": "json",
+                    "description": "To mark contact person as primary for contact. Allowed value is true only.",
+                    "type": "object",
+                    "parameters": {
+                        "invoice_template_id": {
+                            "location": "json",
+                            "description": "Default invoice template id used for this contact while creating invoice.",
+                            "type": "string"
+                        },
+                        "estimate_template_id": {
+                            "location": "json",
+                            "description": "Default estimate template id used for this contact while creating estimate.",
+                            "type": "string"
+                        },
+                        "creditnote_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "invoice_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "estimate_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        },
+                        "creditnote_email_template_id": {
+                            "location": "json",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "deleteContact": {
+            "httpMethod": "DELETE",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Deletes a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveContact": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/active",
+            "summary": "Mark a contact active",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveContact": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/inactive",
+            "summary": "Mark a contact inactive",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "enablePaymentReminders": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/paymentreminder/enable",
+            "summary": "Enable automated payment reminders for a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "disablePaymentReminders": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/paymentreminder/disable",
+            "summary": "Disable automated payment reminders for a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "emailStatement": {
+            "httpMethod": "POST",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/statements/email",
+            "summary": "Email statement to the contact. If JSONString is not inputted, mail will be sent with the default mail content",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                },
+                "send_from_org_email_id": {
+                    "location": "json",
+                    "type": "boolean"
+                },
+                "to_mail_ids": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                },
+                "cc_mail_ids": {
+                    "location": "json",
+                    "type": "array"
+                },
+                "subject": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "body": {
+                    "location": "json",
+                    "type": "string"
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getEmailStatementContent": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/statements/email",
+            "summary": "Get the statement mail content",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "email": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/email",
+            "summary": "Send email to contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                },
+                "to_mail_ids": {
+                    "location": "json",
+                    "type": "array",
+                    "required": true
+                },
+                "subject": {
+                    "location": "json",
+                    "type": "string"
+                },
+                "body": {
+                    "location": "json",
+                    "type": "string"
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "listComments": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/comments",
+            "summary": "List recent activities of a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "listRefunds": {
+            "httpMethod": "GET",
+            "extends": "abstract.basezohoapi",
+            "uri": "/api/v3/contacts/{contact_id}/refunds",
+            "summary": "List the refund history of a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}
+
