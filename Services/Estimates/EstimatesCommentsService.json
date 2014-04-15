@@ -1,0 +1,67 @@
+{
+    "name": "Zoho invoice estimates comments & history api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimateComments": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/{estimate_id}/comments",
+            "summary": "Get the complete history and comments of an estimate",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "addEstimateComment": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/{estimate_id}/comments",
+            "summary": "Add a comment for an estimate.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "updateEstimateComment": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/estimates/{estimate_id}/comments/{comment_id}",
+            "summary": "Update an existing comment of an estimate.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteEstimateComment": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/estimates/{estimate_id}/comments/{comment_id}",
+            "summary": "Delete an estimate comment.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

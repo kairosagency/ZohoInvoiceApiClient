@@ -1,0 +1,82 @@
+{
+    "name": "Zoho invoice items settigns api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getItems": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/items",
+            "summary": "List all items with pagination",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getItem": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Get the details of an item",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "createItem": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/items",
+            "summary": "Creates a new item"
+        },
+        "updateItem": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Update the details of an item",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteItem": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/items/{item_id}",
+            "summary": "Delete the item created.items that are part of transaction cannot be deleted",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveItem": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/items/{item_id}/active",
+            "summary": "Mark an inactive item as active",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveItem": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/items/{item_id}/inactive",
+            "summary": "Mark an inactive item as inactive",
+            "parameters": {
+                "item_id": {
+                    "location": "uri",
+                    "description": "Item ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

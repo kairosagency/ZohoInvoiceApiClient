@@ -1,0 +1,136 @@
+{
+    "name": "Zoho api base calls",
+    "operations": {
+        "abstract.zoho": {
+            "summary": "base calls to zoho api",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Account EMAIL or ID",
+                    "required": true
+                }
+            },
+            "errorResponses": [
+                {
+                    "code": 400,
+                    "phrase": "Bad Request",
+                    "class": "string"
+                },
+                {
+                    "code": 401,
+                    "phrase": "Unauthorized (Invalid Authtoken)",
+                    "class": "string"
+                },
+                {
+                    "code": 404,
+                    "phrase": "Not Found",
+                    "class": "string"
+                },
+                {
+                    "code": 405,
+                    "phrase": "Method Not Allowed (Method you have called is not supported for this API)",
+                    "class": "string"
+                },
+                {
+                    "code": 429,
+                    "phrase": "Rate Limit Exceeded (API usage limit exceeded)",
+                    "class": "string"
+                },
+                {
+                    "code": 500,
+                    "phrase": "Internal Error",
+                    "class": "string"
+                },
+                {
+                    "code": 501,
+                    "phrase": "Not Implemented (Method you have called is not implemented)",
+                    "class": "string"
+                }
+            ]
+        },
+        "abstract.get": {
+            "extends": "abstract.zoho",
+            "summary": "base GET calls to zoho api",
+            "httpMethod": "GET",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "Authorization token",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Organization ID",
+                    "required": true
+                }
+            }
+        },
+        "abstract.post": {
+            "extends": "abstract.zoho",
+            "summary": "base POST calls to zoho api",
+            "httpMethod": "POST",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "Authorization token",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Organization ID",
+                    "required": true
+                },
+                "JSONString": {
+                    "location": "postField",
+                    "description": "JSONString post field with request parameters as json",
+                    "required": true
+                }
+            }
+        },
+        "abstract.put": {
+            "extends": "abstract.zoho",
+            "summary": "base PUT calls to zoho api",
+            "httpMethod": "PUT",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "Authorization token",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Organization ID",
+                    "required": true
+                },
+                "JSONString": {
+                    "location": "postField",
+                    "description": "JSONString post field with request parameters as json",
+                    "required": true
+                }
+            }
+        },
+        "abstract.delete": {
+            "extends": "abstract.zoho",
+            "summary": "base DELETE calls to zoho api",
+            "httpMethod": "DELETE",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "Authorization token",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Organization ID",
+                    "required": true
+                }
+            }
+        }
+    }
+
+}

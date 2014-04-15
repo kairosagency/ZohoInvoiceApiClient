@@ -1,0 +1,67 @@
+{
+    "name": "Zoho invoice invoices comments & history api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimateComments": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}/comments",
+            "summary": "Get the complete history and comments of an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "addInvoiceComment": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}/comments",
+            "summary": "Add a comment for an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "updateInvoiceComment": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}/comments/{comment_id}",
+            "summary": "Update an existing comment of an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteInvoiceComment": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/invoices/{invoice_id}/comments/{comment_id}",
+            "summary": "Delete an invoice comment.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "comment_id": {
+                    "location": "uri",
+                    "description": "Comment ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

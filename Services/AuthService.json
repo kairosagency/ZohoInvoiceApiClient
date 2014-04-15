@@ -1,0 +1,21 @@
+{
+    "name": "Zoho invoice auth api",
+    "baseUrl": "https://accounts.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "operations": {
+        "GetAuthToken": {
+            "httpMethod": "POST",
+            "uri": "/apiauthtoken/nb/create",
+            "summary": "Gets an auth token",
+            "parameters": {
+                "body": {
+                    "location": "body",
+                    "description": "post body with user, password and scope",
+                    "required": true,
+                    "default": "ZohoInvoice/invoiceapi"
+                }
+            }
+        }
+    }
+
+}

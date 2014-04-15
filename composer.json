@@ -1,5 +1,28 @@
 {
+    "name": "kairos/zohoinvoiceapi",
+    "type": "library",
+    "license": "LGPL-3.0",
+    "description": "Zoho invoice client for php",
+    "keywords": ["php", "zoho-invoice"],
+    "authors": [
+        {
+            "name": "t0k4rt",
+            "homepage": "https://github.com/t0k4rt",
+            "role": "Developer"
+        }
+    ],
     "require": {
+        "php": ">=5.3.0",
         "guzzle/guzzle": "3.8.*@dev"
-    }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kairos\\ZohoInvoiceApi": ""
+        }
+    },
+    "target-dir": "kairos/ZohoInvoiceApi"
 }
+

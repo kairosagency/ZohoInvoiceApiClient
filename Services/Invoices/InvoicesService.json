@@ -1,0 +1,332 @@
+{
+    "name": "Zoho invoice invoices api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getInvoices": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices",
+            "summary": "List all invoices with pagination",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getInvoice": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}",
+            "summary": "Get the details of an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                },
+                "print": {
+                    "location": "query",
+                    "type": "boolean"
+                },
+                "accept": {
+                    "location": "query",
+                    "type": "string",
+                    "description": "Get the details of a particular invoice in formats such as json/ pdf/ html. Default format is json. Allowed Values: json, pdf and html"
+                }
+            }
+        },
+        "createInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices",
+            "summary": "Creates a new invoice",
+            "parameters": {
+                "send": {
+                    "location": "query",
+                    "type": "boolean"
+                },
+                "ignore_auto_number_generation": {
+                    "location": "query",
+                    "type": "boolean",
+                    "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number."
+                }
+            }
+        },
+        "updateInvoice": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "User to update by ID",
+                    "required": true
+                },
+                "ignore_auto_number_generation": {
+                    "location": "query",
+                    "type": "boolean",
+                    "description": "Ignore auto invoice number generation for this invoice. This mandates the invoice number."
+                }
+            }
+        },
+        "deleteInvoice": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/invoices/{invoice_id}",
+            "summary": "Delete an existing invoice. Invoices which have payment or credits note applied cannot be deleted",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice id",
+                    "required": true
+                }
+            }
+        },
+        "markSentInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/status/sent",
+            "summary": "Mark a draft invoice as sent",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "markVoidInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/status/void",
+            "summary": "Mark an invoice status as void. Upon voiding, the payments and credits associated with the invoices will be unassociated and will be under customer credits",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "markDraftInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/status/draft",
+            "summary": "Mark a voided invoice as draft",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "emailInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/email",
+            "summary": "Email an invoice to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "send_customer_statement": {
+                    "location": "query",
+                    "description": "Send customer statement pdf a with email.",
+                    "type": "boolean"
+                },
+                "send_attachment": {
+                    "location": "query",
+                    "description": "Send the invoice attachment a with the email.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "emailInvoices": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/email",
+            "summary": "Send invoices to your customers by email. Maximum of 10 invoices can be sent at once",
+            "parameters": {
+                "invoice_ids": {
+                    "location": "query",
+                    "description": "Comma separated invoice ids which are to be emailed.",
+                    "required": true
+                }
+            }
+        },
+        "getInvoiceEmailContent": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}/email",
+            "summary": "Get invoice email content",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "email_template_id": {
+                    "location": "query",
+                    "type": "string",
+                    "description": "Get the email content based on a specific email template. If this param is not inputted, then the content will be based on the email template associated with the customer. If no template is associated with the customer, then default template will be used."
+                }
+            }
+        },
+        "remindCustomer": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/paymentreminder",
+            "summary": "Remind your customer about an unpaid invoice by email. Reminder will be sent, only for the invoices which are in open or overdue status",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "send_customer_statement": {
+                    "location": "query",
+                    "description": "Send customer statement pdf a with payment reminder.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "remindCustomers": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/paymentreminder",
+            "summary": "Remind your customer about an unpaid invoices by email. Reminder mail will be send, only for the invoices is in open or overdue status. Maximum 10 invoices can be reminded at once",
+            "parameters": {
+                "invoice_ids": {
+                    "location": "query",
+                    "description": "Invoice IDs",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "getReminderEmailContent": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}/paymentreminder",
+            "summary": "Get the mail content of the payment reminder",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "exportInvoices": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/pdf",
+            "summary": "Maximum of 25 invoices can be exported in a single pdf",
+            "parameters": {
+                "invoice_ids": {
+                    "location": "query",
+                    "description": "Invoice IDs",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "printInvoices": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/print",
+            "summary": "Export invoices as pdf and print them. Maximum of 25 invoices can be printed",
+            "parameters": {
+                "invoice_ids": {
+                    "location": "query",
+                    "description": "Invoice IDs",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "disablePaymentReminder": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/paymentreminder/disable",
+            "summary": "Disable automated payment reminders for an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "enablePaymentReminder": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/paymentreminder/enable",
+            "summary": "Enable automated payment reminders for an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "writeOffInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/writeoff",
+            "summary": "Write off the invoice balance amount of an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "cancelWriteOffInvoice": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/writeoff/cancel",
+            "summary": "Cancel the write off amount of an invoice.",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "updateBillingAdress": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}/address/billing",
+            "summary": "Updates the billing address for this invoice alone. You can set this address as default billing address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "updateShippingAdress": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}/address/shipping",
+            "summary": "Updates the shipping address for this invoice. You can set this address as default shipping address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "getInvoiceTemplates": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/templates",
+            "summary": "Get all invoice pdf templates"
+        },
+        "updateInvoiceTemplates": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}/templates/{template_id}",
+            "summary": "Update the pdf template associated with the invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                },
+                "template_id": {
+                    "location": "uri",
+                    "description": "Template ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

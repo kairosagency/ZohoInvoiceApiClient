@@ -1,0 +1,208 @@
+{
+    "name": "Zoho invoice estimates api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getEstimates": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates",
+            "summary": "Gets a list of contacts",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createEstimate": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates",
+            "summary": "Creates a new contact"
+        },
+        "getEstimate": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Retrieves a single contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to retrieve by ID",
+                    "required": true
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "updateEstimate": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to update by ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteEstimate": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/estimates/{estimate_id}",
+            "summary": "Deletes a contact",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markSentEstimate": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates/{estimate_id}/status/sent",
+            "summary": "Mark an estimate sent",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "markAcceptedEstimate": {
+            "httpMethod": "POST"
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates/{estimate_id}/status/accepted",
+            "summary": "Mark an estimate accepted",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "markDeclinedEstimate": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates/{estimate_id}/status/declined",
+            "summary": "Mark an estimate declined",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "emailEstimate": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates/{estimate_id}/email",
+            "summary": "Email an estimate to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "emailEstimates": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/estimates/email",
+            "summary": "Send estimates to your customers by email. Maximum of 10 estimates can be sent at once",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "getEstimateEmailContent": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/{estimate_id}/email",
+            "summary": "Get estimate email content",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "email_template_id": {
+                    "location": "query",
+                    "type": "string"
+                }
+            }
+        },
+        "exportEstimates": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/pdf",
+            "summary": "Maximum of 25 estimates can be exported in a single pdf",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "printEstimates": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/print",
+            "summary": "Export estimates as pdf and print them. Maximum of 25 estimates can be printed",
+            "parameters": {
+                "estimate_ids": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "updateBillingAdress": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/estimates/{estimate_id}/address/billing",
+            "summary": "Updates the billing address for this estimate alone. You can set this address as default billing address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "updateShippingAdress": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/estimates/{estimate_id}/address/shipping",
+            "summary": "Updates the shipping address for an existing estimate alone. You can set this address as default shipping address for your customer by specifying 'is_update_customer' param as true",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                }
+            }
+        },
+        "getEstimateTemplates": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/estimates/templates",
+            "summary": "Get all estimate pdf templates."
+        },
+        "updateEstimateTemplates": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/estimates/{estimate_id}/templates/{template_id}",
+            "summary": "Get all estimate pdf templates.",
+            "parameters": {
+                "estimate_id": {
+                    "location": "uri",
+                    "description": "Estimate ID",
+                    "required": true
+                },
+                "template_id": {
+                    "location": "uri",
+                    "description": "Template ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

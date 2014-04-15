@@ -1,0 +1,182 @@
+{
+    "name": "Zoho invoice contacts api",
+    "apiVersion": "v3",
+    "basePath": "http://localhost:3000",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getContacts": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/contacts",
+            "summary": "Gets a list of contacts",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createContact": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts",
+            "summary": "Creates a new contact"
+        },
+        "getContact": {
+            "extends": "abstract.basezohoapi",
+            "httpMethod": "GET",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Retrieves a single contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "updateContact": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "Contact ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteContact": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/contacts/{contact_id}",
+            "summary": "Deletes a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveContact": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/active",
+            "summary": "Mark a contact active",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "Contact ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveContact": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/inactive",
+            "summary": "Mark a contact inactive",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "enablePaymentReminders": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/paymentreminder/enable",
+            "summary": "Enable automated payment reminders for a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "disablePaymentReminders": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/paymentreminder/disable",
+            "summary": "Disable automated payment reminders for a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "emailStatement": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/statements/email",
+            "summary": "Email statement to the contact. If JSONString is not inputted, mail will be sent with the default mail content",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getEmailStatementContent": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/contacts/{contact_id}/statements/email",
+            "summary": "Get the statement mail content",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "email": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/contacts/{contact_id}/email",
+            "summary": "Send email to contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                },
+                "send_customer_statement": {
+                    "location": "query",
+                    "description": "Send customer statement pdf with email.",
+                    "type": "boolean"
+                }
+            },
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "listComments": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/contacts/{contact_id}/comments",
+            "summary": "List recent activities of a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "listRefunds": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/contacts/{contact_id}/refunds",
+            "summary": "List the refund history of a contact",
+            "parameters": {
+                "contact_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}
+

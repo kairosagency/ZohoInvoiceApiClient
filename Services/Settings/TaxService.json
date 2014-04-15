@@ -1,0 +1,111 @@
+{
+    "name": "Zoho invoice taxes settings api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getTaxes": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/settings/taxes",
+            "summary": "Gets a list of taxes"
+        },
+        "getTax": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/settings/taxes/{tax_id}",
+            "summary": "Get a tax",
+            "parameters": {
+                "tax_id": {
+                    "location": "uri",
+                    "description": "tax id",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "createTax": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/settings/taxes",
+            "summary": "Creates a new tax"
+        },
+        "updateTax": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/settings/taxes/{tax_id}",
+            "summary": "Update a single tax",
+            "parameters": {
+                "tax_id": {
+                    "location": "uri",
+                    "description": "tax id",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "deleteTax": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/settings/taxes/{tax_id}",
+            "summary": "Update a single tax",
+            "parameters": {
+                "tax_id": {
+                    "location": "uri",
+                    "description": "tax id",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "getTaxGroup": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/settings/taxgroups/{tax_group_id}",
+            "summary": "Deletes an user",
+            "parameters": {
+                "tax_group_id": {
+                    "location": "uri",
+                    "description": "Tax group ID",
+                    "required": true
+                }
+            }
+        },
+        "createTaxGroup": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/settings/taxgroups",
+            "summary": "Update a single tax",
+            "parameters": {
+                "tax_group_name": {
+                    "location": "uri",
+                    "description": "tax group name",
+                    "type": "string"
+                }
+            }
+        },
+        "updateTaxGroup": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/settings/taxgroups/{tax_group_id}",
+            "summary": "Update a single tax",
+            "parameters": {
+                "tax_group_id": {
+                    "location": "uri",
+                    "description": "Tax group ID",
+                    "required": true
+                },
+                "tax_group_name": {
+                    "location": "uri",
+                    "description": "tax group name",
+                    "type": "string"
+                }
+            }
+        },
+        "deleteTaxGroup": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/settings/taxgroups/{tax_group_id}",
+            "summary": "Update a single tax",
+            "parameters": {
+                "tax_group_id": {
+                    "location": "uri",
+                    "description": "Tax group ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

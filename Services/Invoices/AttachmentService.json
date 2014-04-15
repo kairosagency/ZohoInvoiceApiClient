@@ -1,0 +1,69 @@
+{
+    "name": "Zoho invoice invoices attachment api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getInvoiceAttachment": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/invoices/{invoice_id}/attachment",
+            "summary": "Returns the file attached to the invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "addInvoiceAttachment": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/invoices/{invoice_id}/attachment",
+            "summary": "Attach a file to an invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "updateInvoiceAttachmentPreference": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/invoices/{invoice_id}/attachment",
+            "summary": "Set whether you want to send the attached file while emailing the invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteAttachment": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/invoices/{invoice_id}/attachment",
+            "summary": "Delete the file attached to the invoice",
+            "parameters": {
+                "invoice_id": {
+                    "location": "uri",
+                    "description": "Invoice ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteExpenseReceipt": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/invoices/expenses/{expense_id}/receipt",
+            "summary": "Delete the expense receipts attached to an invoice which is raised from an expense",
+            "parameters": {
+                "expense_id": {
+                    "location": "uri",
+                    "description": "Expense ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}

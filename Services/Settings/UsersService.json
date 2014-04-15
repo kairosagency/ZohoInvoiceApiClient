@@ -1,0 +1,107 @@
+{
+    "name": "Zoho invoice users settings api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getUsers": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/users",
+            "summary": "Gets a list of users",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "createUser": {
+            "extends": "abstract.post",
+            "httpMethod": "POST",
+            "uri": "/api/v3/users",
+            "summary": "Creates a new user"
+        },
+        "getUser": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Retrieves a single user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "getCurrentUser": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/users/me",
+            "summary": "Retrieves current user",
+            "parameters": {
+                "accept": {
+                    "location": "query",
+                    "description": "Param Description.",
+                    "type": "string"
+                }
+            }
+        },
+        "updateUser": {
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Update a single user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to update by ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteUser": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/users/{user_id}",
+            "summary": "Deletes an user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "inviteUser": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/users/{user_id}/invite",
+            "summary": "Deletes an user",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User to delete by ID",
+                    "required": true
+                }
+            }
+        },
+        "markActiveUser": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/users/{user_id}/active",
+            "summary": "Mark a user active",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        },
+        "markInactiveUser": {
+            "httpMethod": "POST",
+            "extends": "abstract.post",
+            "uri": "/api/v3/users/{user_id}/inactive",
+            "summary": "Mark a user inactive",
+            "parameters": {
+                "user_id": {
+                    "location": "uri",
+                    "description": "User ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}
