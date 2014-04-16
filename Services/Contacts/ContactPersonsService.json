@@ -27,7 +27,7 @@
             "parameters": {
                 "contact_person_id": {
                     "location": "uri",
-                    "description": "User to retrieve by ID",
+                    "description": "Contact to retrieve by ID",
                     "required": true
                 }
             }

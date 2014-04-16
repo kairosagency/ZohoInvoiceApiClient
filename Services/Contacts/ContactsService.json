@@ -1,7 +1,7 @@
 {
     "name": "Zoho invoice contacts api",
     "apiVersion": "v3",
-    "basePath": "http://localhost:3000",
+    "basePath": "https://invoice.zoho.com",
     "description": "Foo is an API that allows you to Baz Bar",
     "includes": ["../BaseService.json"],
     "operations": {
@@ -19,7 +19,7 @@
             "summary": "Creates a new contact"
         },
         "getContact": {
-            "extends": "abstract.basezohoapi",
+            "extends": "abstract.get",
             "httpMethod": "GET",
             "uri": "/api/v3/contacts/{contact_id}",
             "summary": "Retrieves a single contact",
@@ -179,4 +179,3 @@
         }
     }
 }
-
