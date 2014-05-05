@@ -2,7 +2,7 @@
     "name": "Zoho invoice organization api",
     "basePath": "https://invoice.zoho.com",
     "operations": {
-        "abstract.basezohoorgapi": {
+        "abstract.orgapi": {
             "summary": "base calls to zoho api",
             "parameters": {
                 "authtoken": {
@@ -14,13 +14,13 @@
         },
         "getOrganizations": {
             "httpMethod": "GET",
-            "extends": "abstract.basezohoorgapi",
+            "extends": "abstract.orgapi",
             "uri": "/api/v3/organizations",
             "summary": "List organizations"
         },
         "getOrganization": {
             "httpMethod": "GET",
-            "extends": "abstract.basezohoorgapi",
+            "extends": "abstract.orgapi",
             "uri": "/api/v3/organizations/{id}",
             "summary": "Gets an auth token",
             "parameters": {
@@ -33,13 +33,13 @@
         },
         "createOrganization": {
             "httpMethod": "POST",
-            "extends": "abstract.basezohoorgapi",
+            "extends": "abstract.orgapi",
             "uri": "/api/v3/organizations",
             "summary": "Create an organization"
         },
         "updateOrganization": {
             "httpMethod": "PUT",
-            "extends": "abstract.basezohoorgapi",
+            "extends": "abstract.orgapi",
             "uri": "/api/v3/organizations/{id}",
             "summary": "Update an organization",
             "parameters": {

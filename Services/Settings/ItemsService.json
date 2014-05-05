@@ -55,7 +55,7 @@
             }
         },
         "markActiveItem": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/items/{item_id}/active",
             "summary": "Mark an inactive item as active",
             "parameters": {
@@ -67,7 +67,7 @@
             }
         },
         "markInactiveItem": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/items/{item_id}/inactive",
             "summary": "Mark an inactive item as inactive",
             "parameters": {

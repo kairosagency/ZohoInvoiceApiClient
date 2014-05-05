@@ -79,7 +79,7 @@
             }
         },
         "markActiveUser": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/users/{user_id}/active",
             "summary": "Mark a user active",
             "parameters": {
@@ -91,8 +91,7 @@
             }
         },
         "markInactiveUser": {
-            "httpMethod": "POST",
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/users/{user_id}/inactive",
             "summary": "Mark a user inactive",
             "parameters": {

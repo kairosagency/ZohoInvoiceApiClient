@@ -20,7 +20,7 @@ class ZohoInvoiceApiClient extends Client
             'ssl' => true
         );
 
-        $required = array('service_definition', 'authtoken', 'organization_id', 'ssl');
+        $required = array('service_definition', 'authtoken', 'ssl');
 
         $config = Collection::fromConfig($config, $default, $required);
 

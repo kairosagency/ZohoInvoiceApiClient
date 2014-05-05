@@ -80,7 +80,7 @@
             }
         },
         "markSentInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/status/sent",
             "summary": "Mark a draft invoice as sent",
             "parameters": {
@@ -92,7 +92,7 @@
             }
         },
         "markVoidInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/status/void",
             "summary": "Mark an invoice status as void. Upon voiding, the payments and credits associated with the invoices will be unassociated and will be under customer credits",
             "parameters": {
@@ -104,7 +104,7 @@
             }
         },
         "markDraftInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/status/draft",
             "summary": "Mark a voided invoice as draft",
             "parameters": {
@@ -116,7 +116,7 @@
             }
         },
         "emailInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/email",
             "summary": "Email an invoice to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content",
             "parameters": {
@@ -138,7 +138,7 @@
             }
         },
         "emailInvoices": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/email",
             "summary": "Send invoices to your customers by email. Maximum of 10 invoices can be sent at once",
             "parameters": {
@@ -167,7 +167,7 @@
             }
         },
         "remindCustomer": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/paymentreminder",
             "summary": "Remind your customer about an unpaid invoice by email. Reminder will be sent, only for the invoices which are in open or overdue status",
             "parameters": {
@@ -184,7 +184,7 @@
             }
         },
         "remindCustomers": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/paymentreminder",
             "summary": "Remind your customer about an unpaid invoices by email. Reminder mail will be send, only for the invoices is in open or overdue status. Maximum 10 invoices can be reminded at once",
             "parameters": {
@@ -235,7 +235,7 @@
             }
         },
         "disablePaymentReminder": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/paymentreminder/disable",
             "summary": "Disable automated payment reminders for an invoice",
             "parameters": {
@@ -247,7 +247,7 @@
             }
         },
         "enablePaymentReminder": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/paymentreminder/enable",
             "summary": "Enable automated payment reminders for an invoice",
             "parameters": {
@@ -259,7 +259,7 @@
             }
         },
         "writeOffInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/writeoff",
             "summary": "Write off the invoice balance amount of an invoice",
             "parameters": {
@@ -271,7 +271,7 @@
             }
         },
         "cancelWriteOffInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/invoices/{invoice_id}/writeoff/cancel",
             "summary": "Cancel the write off amount of an invoice.",
             "parameters": {

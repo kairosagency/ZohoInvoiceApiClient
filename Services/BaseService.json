@@ -92,6 +92,28 @@
                 }
             }
         },
+        "abstract.postWithoutContent": {
+            "extends": "abstract.zoho",
+            "summary": "base POST calls to zoho api",
+            "httpMethod": "POST",
+            "parameters": {
+                "authtoken": {
+                    "location": "query",
+                    "description": "Authorization token",
+                    "required": true
+                },
+                "organization_id": {
+                    "location": "query",
+                    "description": "Organization ID",
+                    "required": true
+                },
+                "JSONString": {
+                    "location": "postField",
+                    "description": "JSONString post field with request parameters as json",
+                    "required": false
+                }
+            }
+        },
         "abstract.put": {
             "extends": "abstract.zoho",
             "summary": "base PUT calls to zoho api",

@@ -56,7 +56,7 @@
             }
         },
         "markActiveContact": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/active",
             "summary": "Mark a contact active",
             "parameters": {
@@ -68,7 +68,7 @@
             }
         },
         "markInactiveContact": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/inactive",
             "summary": "Mark a contact inactive",
             "parameters": {
@@ -80,7 +80,7 @@
             }
         },
         "enablePaymentReminders": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/paymentreminder/enable",
             "summary": "Enable automated payment reminders for a contact",
             "parameters": {
@@ -92,7 +92,7 @@
             }
         },
         "disablePaymentReminders": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/paymentreminder/disable",
             "summary": "Disable automated payment reminders for a contact",
             "parameters": {
@@ -104,7 +104,7 @@
             }
         },
         "emailStatement": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/statements/email",
             "summary": "Email statement to the contact. If JSONString is not inputted, mail will be sent with the default mail content",
             "parameters": {
@@ -134,7 +134,7 @@
             }
         },
         "email": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/{contact_id}/email",
             "summary": "Send email to contact",
             "parameters": {

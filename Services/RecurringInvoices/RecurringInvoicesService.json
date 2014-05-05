@@ -55,7 +55,7 @@
             }
         },
         "stopRecurringInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/status/stop",
             "summary": "Stop an active recurring invoice",
             "parameters": {
@@ -67,7 +67,7 @@
             }
         },
         "resumeRecurringInvoice": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/recurringinvoices/{recurring_invoice_id}/status/stop",
             "summary": "Resume an active recurring invoice",
             "parameters": {

@@ -68,7 +68,7 @@
             }
         },
         "markPrimaryContactPerson": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/contacts/contactpersons/{contact_person_id}/primary",
             "summary": "Mark a contact person as primary for the contact",
             "parameters": {

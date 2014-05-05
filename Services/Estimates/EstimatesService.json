@@ -58,7 +58,7 @@
             }
         },
         "markSentEstimate": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/estimates/{estimate_id}/status/sent",
             "summary": "Mark an estimate sent",
             "parameters": {
@@ -70,8 +70,7 @@
             }
         },
         "markAcceptedEstimate": {
-            "httpMethod": "POST"
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/estimates/{estimate_id}/status/accepted",
             "summary": "Mark an estimate accepted",
             "parameters": {
@@ -83,7 +82,7 @@
             }
         },
         "markDeclinedEstimate": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/estimates/{estimate_id}/status/declined",
             "summary": "Mark an estimate declined",
             "parameters": {
@@ -95,7 +94,7 @@
             }
         },
         "emailEstimate": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/estimates/{estimate_id}/email",
             "summary": "Email an estimate to the customer. Input json string is not mandatory. If input json string is empty, mail will be send with default mail content",
             "parameters": {
@@ -107,7 +106,7 @@
             }
         },
         "emailEstimates": {
-            "extends": "abstract.post",
+            "extends": "abstract.postWithoutContent",
             "uri": "/api/v3/estimates/email",
             "summary": "Send estimates to your customers by email. Maximum of 10 estimates can be sent at once",
             "parameters": {
