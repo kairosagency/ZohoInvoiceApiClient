@@ -1,0 +1,58 @@
+{
+    "name": "Zoho invoice contacts api",
+    "apiVersion": "v3",
+    "basePath": "https://invoice.zoho.com",
+    "description": "Foo is an API that allows you to Baz Bar",
+    "includes": ["../BaseService.json"],
+    "operations": {
+        "getCustomerPayments": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/customerpayments",
+            "summary": "List contact persons of a contact with pagination",
+            "additionalParameters": {
+                "location": "query"
+            }
+        },
+        "getCustomerPayment": {
+            "extends": "abstract.get",
+            "uri": "/api/v3/customerpayments/{payment_id}",
+            "summary": "Get the contact person details",
+            "parameters": {
+                "payment_id": {
+                    "location": "uri",
+                    "description": "Contact to retrieve by ID",
+                    "required": true
+                }
+            }
+        },
+        "createCustomerPayment": {
+            "extends": "abstract.post",
+            "uri": "/api/v3/customerpayments",
+            "summary": "Creates a new contact person"
+        },
+        "updateCustomerPayment": {
+            "extends": "abstract.put",
+            "uri": "/api/v3/customerpayments/{payment_id}",
+            "summary": "Update a single contact",
+            "parameters": {
+                "payment_id": {
+                    "location": "uri",
+                    "description": "Contact person ID",
+                    "required": true
+                }
+            }
+        },
+        "deleteCustomerPayment": {
+            "extends": "abstract.delete",
+            "uri": "/api/v3/customerpayments/{payment_id}",
+            "summary": "Delete a single contact person",
+            "parameters": {
+                "payment_id": {
+                    "location": "uri",
+                    "description": "Contact person ID",
+                    "required": true
+                }
+            }
+        }
+    }
+}
